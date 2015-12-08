@@ -91,6 +91,18 @@ public class SecondWebViewPlugin extends CordovaPlugin {
       r.put("responseCode", "ok");
       callbackContext.success(r);
     }
+    else if(action.equals("injectJSCode")){
+      //TODO inject JS Code
+    }
+    else if(action.equals("injectJSFile")){
+      //TODO inject JS File
+    }
+    else if(action.equals("injectCSSCode")){
+      //TODO inject CSS Code
+    }
+    else if(action.equals("injectCSSFile")){
+      //TODO inject CSS File
+    }
 
     else {
       return false;
@@ -110,5 +122,6 @@ public class SecondWebViewPlugin extends CordovaPlugin {
   private void hideWebView() {
     LOG.d(LOG_TAG, "hideWebView");
     this.cordova.getActivity().finish();
+    this.cordova.getActivity().
   }
 }
