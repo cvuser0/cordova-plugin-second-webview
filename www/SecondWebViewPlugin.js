@@ -21,19 +21,19 @@ module.exports = (function()
         },
         InjectJSCode     : function( code, callback )
         {
-            cordova.exec( callback, null, 'SecondWebViewPlugin', 'injectJSCode', [ code, !!callback ] );
+            cordova.exec( callback, callback, 'SecondWebViewPlugin', 'injectJSCode', [ code, !!callback ] );
         },
         InjectJSFile     : function( file, callback )
         {
-            cordova.exec( callback, null, 'SecondWebViewPlugin', 'injectJSFile', [ file, !!callback ] );
+            cordova.exec( callback, callback, 'SecondWebViewPlugin', 'injectJSFile', [ file, !!callback ] );
         },
         InjectCSSCode    : function( code, callback )
         {
-            cordova.exec( callback, null, 'SecondWebViewPlugin', 'injectCSSCode', [ code, !!callback ] );
+            cordova.exec( callback, callback, 'SecondWebViewPlugin', 'injectCSSCode', [ code, !!callback ] );
         },
         InjectCSSFile    : function( file, callback )
         {
-            cordova.exec( callback, null, 'SecondWebViewPlugin', 'injectCSSFile', [ file, !!callback ] );
+            cordova.exec( callback, callback, 'SecondWebViewPlugin', 'injectCSSFile', [ file, !!callback ] );
         }
     };
 })();
