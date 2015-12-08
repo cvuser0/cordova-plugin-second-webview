@@ -93,15 +93,27 @@ public class SecondWebViewPlugin extends CordovaPlugin {
     }
     else if(action.equals("injectJSCode")){
       //TODO inject JS Code
+      JSONObject r = new JSONObject();
+      r.put("responseCode", "ok");
+      callbackContext.success(r);
     }
     else if(action.equals("injectJSFile")){
       //TODO inject JS File
+      JSONObject r = new JSONObject();
+      r.put("responseCode", "ok");
+      callbackContext.success(r);
     }
     else if(action.equals("injectCSSCode")){
       //TODO inject CSS Code
+      JSONObject r = new JSONObject();
+      r.put("responseCode", "ok");
+      callbackContext.success(r);
     }
     else if(action.equals("injectCSSFile")){
       //TODO inject CSS File
+      JSONObject r = new JSONObject();
+      r.put("responseCode", "ok");
+      callbackContext.success(r);
     }
 
     else {
@@ -127,6 +139,5 @@ public class SecondWebViewPlugin extends CordovaPlugin {
   private void hideWebView() {
     LOG.d(LOG_TAG, "hideWebView");
     this.cordova.getActivity().finish();
-    this.cordova.getActivity().
   }
 }
