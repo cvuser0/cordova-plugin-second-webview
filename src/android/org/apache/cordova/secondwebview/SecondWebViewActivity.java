@@ -1,4 +1,4 @@
-package org.cordova.apache.second-webview.SecondWebViewPlugin;
+package org.cordova.apache.secondwebview.SecondWebViewPlugin;
 
 import android.os.Bundle;
 
