@@ -16,13 +16,21 @@ module.exports = (function()
             cordova.exec( successCallback, errorCallback, 'SecondWebViewPlugin', 'subscribeCallback', [] );
         },
         Close            : this.Hide,
-        ExecuteCode      : function()
+        InjectJSCode : function( code, callback )
         {
-            //TODO
+            cordova.exec( callback, null, 'SecondWebViewPlugin', 'injectJSCode', [ code, !!callback ] );
         },
-        ExecuteFile      : function()
+        InjectJSFile : function( file, callback )
         {
-            //TODO
+            cordova.exec( callback, null, 'SecondWebViewPlugin', 'injectJSFile', [ file, !!callback ] );
+        },
+        InjectCSSCode: function( code, callback )
+        {
+            cordova.exec( callback, null, 'SecondWebViewPlugin', 'injectCSSCode', [ code, !!callback ] );
+        },
+        InjectCSSFile: function( file, callback )
+        {
+            cordova.exec( callback, null, 'SecondWebViewPlugin', 'injectCSSFile', [ file, !!callback ] );
         }
     };
 })();

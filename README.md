@@ -1,25 +1,6 @@
-<!---
-license: Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License.
--->
-
-# cl.kunder.webview
+# Second Webview Plugin
 This cordova plugin enables you to open a second webview in your app.
-This webview is totally independent from the main webview, but allows you tu access plugins and other Cordova resources.
+This webview is totally independent from the main webview but **can** (WIP) communicate with it, and allows you to access plugins and other Cordova resources.
 
 It's possible to modify this plugin to allow multiple webviews.
 
@@ -27,7 +8,7 @@ It's possible to modify this plugin to allow multiple webviews.
 
 First, add the plugin to your cordova application
 
-    cordova plugin add github.com/kunder-lab/cl.kunder.webview.git
+    cordova plugin add https://github.com/cvuser0/cordova-plugin-second-webview.git
 
 To open a new webview, just call in your app's js:
 
@@ -40,3 +21,11 @@ Then, to close the second webview and return to the main view, call in your seco
     webview.Close();
 
 This will close and destroy the second webview.
+
+## Incoming changes
+
+* Communication towards the child webview
+
+* Possibility to communicate from the child to the parent
+ 
+* Moar code!
