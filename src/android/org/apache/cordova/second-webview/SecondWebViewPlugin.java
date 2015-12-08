@@ -111,6 +111,11 @@ public class SecondWebViewPlugin extends CordovaPlugin {
     return true;
   }
 
+  private void loadURL(String url)
+  {
+    //TODO get second webview and call loadUrl on it
+  }
+
   private void showWebView(final String url) {
     LOG.d(LOG_TAG, "Url: " + url);
     Intent i = new Intent(this.cordova.getActivity(), SeondWebViewActivity.class);
