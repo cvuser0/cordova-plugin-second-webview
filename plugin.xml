@@ -29,7 +29,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="SecondWebViewPlugin">
-                <param name="android-package" value="org.cordova.apache.second-webview.SecondWebViewPlugin"/>
+                <param name="android-package" value="org.cordova.apache.secondwebview.SecondWebViewPlugin"/>
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
@@ -37,8 +37,8 @@
             </activity>
         </config-file>
 
-        <source-file src="src/android/org/apache/cordova/second-webview/SecondWebViewPlugin.java" target-dir="src/org/apache/cordova/second-webview"/>
-        <source-file src="src/android/org/apache/cordova/second-webview/SecondWebViewActivity.java" target-dir="src/org/apache/cordova/second-webview"/>
+        <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewPlugin.java" target-dir="src/org/apache/cordova/secondwebview"/>
+        <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewActivity.java" target-dir="src/org/apache/cordova/secondwebview"/>
 
     </platform>
 
@@ -51,7 +51,7 @@
         </config-file>
 
         <!-- SecondWebView -->
-        <header-file src="src/ios/second-webview/SecondWebViewPlugin.h"/>
-        <source-file src="src/ios/second-webview/SecondWebViewPlugin.m"/>
+        <header-file src="src/ios/secondwebview/SecondWebViewPlugin.h"/>
+        <source-file src="src/ios/secondwebview/SecondWebViewPlugin.m"/>
     </platform>
 </plugin>
