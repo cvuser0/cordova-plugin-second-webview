@@ -130,7 +130,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
 
   private void showWebView(final String url) {
     LOG.d(LOG_TAG, "Url: " + url);
-    Intent i = new Intent(this.cordova.getActivity(), SeondWebViewActivity.class);
+    Intent i = new Intent(this.cordova.getActivity(), SecondWebViewActivity.class);
     i.putExtra("url", url);
     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
     this.cordova.getActivity().getApplicationContext().startActivity(i);
