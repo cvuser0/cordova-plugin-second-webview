@@ -21,7 +21,7 @@
 
     <!-- SecondWebView -->
     <js-module src="www/SecondwebViewPlugin.js" name="webview">
-        <merges target="webview"/>
+        <clobbers target="WebView"/>
     </js-module>
 
 
