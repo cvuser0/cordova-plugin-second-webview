@@ -31,6 +31,12 @@ module.exports = (function () {
         },
         GetJSONArray: function (callback, args) {
             cordova.exec(callback, callback, 'SecondWebViewPlugin', 'getJSONArray', [args]);
+        },
+        CallCTP: function (callback) {
+            cordova.exec(callback, callback, 'SecondWebViewPlugin', 'callCTP', []);
+        },
+        CallPTC: function (callback) {
+            cordova.exec(callback, callback, 'SecondWebViewPlugin', 'callPTC', []);
         }
     };
 })();
