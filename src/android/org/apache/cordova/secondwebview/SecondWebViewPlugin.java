@@ -107,18 +107,18 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             //TODO register JS Function Callback
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-            final ctpCallback=new customCallback() {
-                public static callback=callbackContext; //use first callback as return from webview
-            };
+//            final ctpCallback=new customCallback() {
+//                public static callback=callbackContext; //use first callback as return from webview
+//            };
             callbackContext.error(r); //use second callback as success and fail
         } // end registerReceiver
         else if (action.equals("sendData")) {
             //TODO inject JS Function Call
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-            final ptcCallback=new customCallback() {
-                public static callback=callbackContext; //use first callback as return from webview
-            };
+//            final ptcCallback=new customCallback() {
+//                public static callback=callbackContext; //use first callback as return from webview
+//            };
             callbackContext.error(r); //use second callback as success and fail
         } // end sendData
         else if (action.equals("getJSONArray")) {
