@@ -110,7 +110,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
 
             ctpCallback = new customCallback() {
                 public void call() {
-                    callbackContext.error(); //use first callback as callback for webview
+                    callbackContext.succes(); //use first callback as callback for webview
                 }
             };
             callbackContext.error(r); //use second callback as success and fail
@@ -157,7 +157,12 @@ public class SecondWebViewPlugin extends CordovaPlugin {
         this.cordova.getActivity().finish();
     }
 
+    public void callParent(data, callback){
+        //TODO add code to call parent callback
+
+    }
+
     public interface customCallback {
-        void call();
+        public void call();
     }
 }
