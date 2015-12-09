@@ -1,4 +1,4 @@
-package org.cordova.apache.secondwebview.SecondWebViewPlugin;
+package org.apache.cordova.secondwebview;
 
 import java.util.ArrayList;
 
