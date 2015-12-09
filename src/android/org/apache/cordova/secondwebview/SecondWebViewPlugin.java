@@ -112,7 +112,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
                 public void call() {
                     JSONObject r = new JSONObject();
                     r.put("callback","OK");
-                    callbackContext.succes(r); //use first callback as callback for webview
+                    callbackContext.success(r); //use first callback as callback for webview
                 }
             };
             callbackContext.error(r); //use second callback as success and fail
