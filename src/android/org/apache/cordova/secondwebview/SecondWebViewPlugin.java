@@ -107,12 +107,8 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             //TODO register JS Function Callback
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-            final ctpCallback = new customCallback() {
-                public void call() {
-                    JSONObject r = new JSONObject();
-                    r.put("responseCode", "ok");
-                    callbackContext.success(r); //use first callback as callback for webview
-                }
+            final ctpCallback=new customCallback() {
+                public static callback=callbackContext; //use first callback as return from webview
             };
             callbackContext.error(r); //use second callback as success and fail
         } // end registerReceiver
@@ -120,12 +116,8 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             //TODO inject JS Function Call
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-            final ptcCallback = new customCallback() {
-                public void call() {
-                    JSONObject r = new JSONObject();
-                    r.put("responseCode", "ok");
-                    callbackContext.success(r); //use first callback as return from webview
-                }
+            final ptcCallback=new customCallback() {
+                public static callback=callbackContext; //use first callback as return from webview
             };
             callbackContext.error(r); //use second callback as success and fail
         } // end sendData
@@ -135,6 +127,18 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             r.put("args", args);
             callbackContext.success(r);
         } // end getJSONArray
+        else if (action.equals("callCTP")) {
+            JSONObject r = new JSONObject();
+            r.put("responseCode", "ok");
+            ctpCallback.callback.success(r);
+            callbackContext.success(r);
+        } // end callCTP
+        else if (action.equals("callPTC")) {
+            JSONObject r = new JSONObject();
+            r.put("responseCode", "ok");
+            ptcCallback.callback.success(r);
+            callbackContext.success(r);
+        } // end callPTC
         else {
             return false;
         }
@@ -166,6 +170,6 @@ public class SecondWebViewPlugin extends CordovaPlugin {
 //    }
 
     public interface customCallback {
-        public void call();
+        public static callback;
     }
 }
