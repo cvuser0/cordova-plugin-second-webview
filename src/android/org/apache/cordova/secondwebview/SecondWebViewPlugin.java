@@ -1,6 +1,7 @@
 package org.apache.cordova.secondwebview;
 
 import java.util.ArrayList;
+import java.*;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -127,13 +128,13 @@ public class SecondWebViewPlugin extends CordovaPlugin {
         else if (action.equals("callCTP")) {
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-            ctpCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, 420));
+            ctpCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, r));
             callbackContext.success(r);
         } // end callCTP
         else if (action.equals("callPTC")) {
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-            ptcCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, 420));
+            ptcCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, r));
             callbackContext.success(r);
         } // end callPTC
         else {
