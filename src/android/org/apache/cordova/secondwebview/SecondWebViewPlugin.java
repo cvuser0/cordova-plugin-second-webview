@@ -157,10 +157,10 @@ public class SecondWebViewPlugin extends CordovaPlugin {
         this.cordova.getActivity().finish();
     }
 
-    public void callParent(data, callback){
-        //TODO add code to call parent callback
-
-    }
+//    public void callParent(Object data, CallBack callback){
+//        //TODO add code to call parent callback
+//
+//    }
 
     public interface customCallback {
         public void call();
