@@ -110,7 +110,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
 
             ctpCallback = new customCallback() {
                 public void call() {
-                    callbackContext.success(); //use first callback as callback for webview
+                    callbackContext.error(); //use first callback as callback for webview
                 }
             };
             callbackContext.fail(r); //use second callback as success and fail
@@ -124,7 +124,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
                     callbackContext.success(); //use first callback as return from webview
                 }
             };
-            callbackContext.fail(r); //use second callback as success and fail
+            callbackContext.error(r); //use second callback as success and fail
         } // end sendData
         else if (action.equals("getJSONArray")) {
             JSONObject r = new JSONObject();
