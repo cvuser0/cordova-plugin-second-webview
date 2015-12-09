@@ -115,6 +115,18 @@ public class SecondWebViewPlugin extends CordovaPlugin {
       r.put("responseCode", "ok");
       callbackContext.success(r);
     }
+    else if(action.equals("registerReceiver")){
+      //TODO register JS Function Callback
+      JSONObject r = new JSONObject();
+      r.put("responseCode", "ok");
+      callbackContext.success(r);
+    }
+    else if(action.equals("sendData")){
+      //TODO inject JS Function Call
+      JSONObject r = new JSONObject();
+      r.put("responseCode", "ok");
+      callbackContext.success(r);
+    }
 
     else {
       return false;

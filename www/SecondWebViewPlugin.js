@@ -34,6 +34,14 @@ module.exports = (function()
         InjectCSSFile    : function( file, callback )
         {
             cordova.exec( callback, callback, 'SecondWebViewPlugin', 'injectCSSFile', [ file, !!callback ] );
+        },
+        RegisterReceiver : function( callback, receiver )
+        {
+            cordova.exec( callback, callback, 'SecondWebViewPlugin', 'registerReceiver', [ receiver ] );
+        },
+        Send             : function( callback, data )
+        {
+            cordova.exec( callback, callback, 'SecondWebViewPlugin', 'send', [ data ] );
         }
     };
 })();
