@@ -127,13 +127,13 @@ public class SecondWebViewPlugin extends CordovaPlugin {
         else if (action.equals("callCTP")) {
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-            ctpCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, {test:420}));
+            ctpCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, 420));
             callbackContext.success(r);
         } // end callCTP
         else if (action.equals("callPTC")) {
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-            ptcCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, {test:420}));
+            ptcCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, 420));
             callbackContext.success(r);
         } // end callPTC
         else {
