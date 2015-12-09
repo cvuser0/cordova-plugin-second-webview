@@ -107,8 +107,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             //TODO register JS Function Callback
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-
-            final ctpCallback=new customCallback() {
+            final ctpCallback = new customCallback() {
                 public void call() {
                     JSONObject r = new JSONObject();
                     r.put("responseCode", "ok");
@@ -121,7 +120,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             //TODO inject JS Function Call
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-            final ptcCallback=new customCallback() {
+            final ptcCallback = new customCallback() {
                 public void call() {
                     JSONObject r = new JSONObject();
                     r.put("responseCode", "ok");
