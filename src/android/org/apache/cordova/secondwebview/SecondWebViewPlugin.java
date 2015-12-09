@@ -24,6 +24,7 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaInterface;
 
+import org.apache.cordova.PluginResult;
 import org.apache.cordova.CordovaWebViewImpl;
 import org.apache.cordova.PluginEntry;
 import org.json.JSONArray;
@@ -38,8 +39,8 @@ public class SecondWebViewPlugin extends CordovaPlugin {
 
     private static final String LOG_TAG = "SecondWebview";
     private CallbackContext closeCallback;
-    private customCallback ctpCallback = null; //Child To Parent
-    private customCallback ptcCallback = null; //Parent To Child
+    private CallbackContext ctpCallback = null; //Child To Parent
+    private CallbackContext ptcCallback = null; //Parent To Child
 
     public SecondWebViewPlugin() {
 
@@ -107,18 +108,14 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             //TODO register JS Function Callback
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-//            final ctpCallback=new customCallback() {
-//                public static callback=callbackContext; //use first callback as return from webview
-//            };
+            ctpCallback = callbackContext; //use first callback as return from webview
             callbackContext.error(r); //use second callback as success and fail
         } // end registerReceiver
         else if (action.equals("sendData")) {
             //TODO inject JS Function Call
             JSONObject r = new JSONObject();
             r.put("responseCode", "ok");
-//            final ptcCallback=new customCallback() {
-//                public static callback=callbackContext; //use first callback as return from webview
-//            };
+            ptcCallback = callbackContext; //use first callback as return from webview
             callbackContext.error(r); //use second callback as success and fail
         } // end sendData
         else if (action.equals("getJSONArray")) {
@@ -127,18 +124,18 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             r.put("args", args);
             callbackContext.success(r);
         } // end getJSONArray
-//        else if (action.equals("callCTP")) {
-//            JSONObject r = new JSONObject();
-//            r.put("responseCode", "ok");
-//            ctpCallback.callback.success(r);
-//            callbackContext.success(r);
-//        } // end callCTP
-//        else if (action.equals("callPTC")) {
-//            JSONObject r = new JSONObject();
-//            r.put("responseCode", "ok");
-//            ptcCallback.callback.success(r);
-//            callbackContext.success(r);
-//        } // end callPTC
+        else if (action.equals("callCTP")) {
+            JSONObject r = new JSONObject();
+            r.put("responseCode", "ok");
+            ctpCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, {test:420}));
+            callbackContext.success(r);
+        } // end callCTP
+        else if (action.equals("callPTC")) {
+            JSONObject r = new JSONObject();
+            r.put("responseCode", "ok");
+            ptcCallback.sendPluginResult(new PluginResult(PluginResult.Status.OK, {test:420}));
+            callbackContext.success(r);
+        } // end callPTC
         else {
             return false;
         }
@@ -169,7 +166,4 @@ public class SecondWebViewPlugin extends CordovaPlugin {
 //
 //    }
 
-    public interface customCallback {
-//        public static callback;
-    }
 }
