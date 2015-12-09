@@ -110,7 +110,9 @@ public class SecondWebViewPlugin extends CordovaPlugin {
 
             ctpCallback = new customCallback() {
                 public void call() {
-                    callbackContext.succes(); //use first callback as callback for webview
+                    JSONObject r = new JSONObject();
+                    r.put("callback","OK");
+                    callbackContext.succes(r); //use first callback as callback for webview
                 }
             };
             callbackContext.error(r); //use second callback as success and fail
@@ -121,7 +123,9 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             r.put("responseCode", "ok");
             ptcCallback = new customCallback() {
                 public void call() {
-                    callbackContext.success(); //use first callback as return from webview
+                    JSONObject r = new JSONObject();
+                    r.put("callback","OK");
+                    callbackContext.success(r); //use first callback as return from webview
                 }
             };
             callbackContext.error(r); //use second callback as success and fail
