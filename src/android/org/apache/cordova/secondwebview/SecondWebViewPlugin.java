@@ -147,7 +147,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
         LOG.d(LOG_TAG, "Url: " + url);
         Intent i = new Intent(this.cordova.getActivity(), SecondWebViewActivity.class);
         i.putExtra("url", url);
-        i.putExtra("callback", );
+//        i.putExtra("callback", );
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.cordova.getActivity().getApplicationContext().startActivity(i);
     }
