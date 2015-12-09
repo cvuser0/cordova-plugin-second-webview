@@ -113,7 +113,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
                     callbackContext.error(); //use first callback as callback for webview
                 }
             };
-            callbackContext.fail(r); //use second callback as success and fail
+            callbackContext.error(r); //use second callback as success and fail
         } // end registerReceiver
         else if (action.equals("sendData")) {
             //TODO inject JS Function Call
