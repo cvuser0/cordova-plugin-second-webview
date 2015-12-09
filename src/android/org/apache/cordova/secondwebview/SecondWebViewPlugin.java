@@ -112,7 +112,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
                 public void call() {
                     callbackContext.success(); //use first callback as callback for webview
                 }
-            }
+            };
             callbackContext.fail(r); //use second callback as success and fail
         } // end registerReceiver
         else if (action.equals("sendData")) {
@@ -123,7 +123,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
                 public void call() {
                     callbackContext.success(); //use first callback as return from webview
                 }
-            }
+            };
             callbackContext.fail(r); //use second callback as success and fail
         } // end sendData
         else if (action.equals("getJSONArray")) {
