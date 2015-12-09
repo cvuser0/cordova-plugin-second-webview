@@ -127,18 +127,18 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             r.put("args", args);
             callbackContext.success(r);
         } // end getJSONArray
-        else if (action.equals("callCTP")) {
-            JSONObject r = new JSONObject();
-            r.put("responseCode", "ok");
-            ctpCallback.callback.success(r);
-            callbackContext.success(r);
-        } // end callCTP
-        else if (action.equals("callPTC")) {
-            JSONObject r = new JSONObject();
-            r.put("responseCode", "ok");
-            ptcCallback.callback.success(r);
-            callbackContext.success(r);
-        } // end callPTC
+//        else if (action.equals("callCTP")) {
+//            JSONObject r = new JSONObject();
+//            r.put("responseCode", "ok");
+//            ctpCallback.callback.success(r);
+//            callbackContext.success(r);
+//        } // end callCTP
+//        else if (action.equals("callPTC")) {
+//            JSONObject r = new JSONObject();
+//            r.put("responseCode", "ok");
+//            ptcCallback.callback.success(r);
+//            callbackContext.success(r);
+//        } // end callPTC
         else {
             return false;
         }
@@ -170,6 +170,6 @@ public class SecondWebViewPlugin extends CordovaPlugin {
 //    }
 
     public interface customCallback {
-        public static callback;
+//        public static callback;
     }
 }
