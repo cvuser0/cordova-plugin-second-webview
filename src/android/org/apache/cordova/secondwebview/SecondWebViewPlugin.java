@@ -1,46 +1,15 @@
 package org.apache.cordova.secondwebview;
 
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.*;
-
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-
 import android.content.Intent;
-import android.util.DisplayMetrics;
-import android.view.View;
-import android.view.ViewGroup;
-
-import android.view.Window;
-import android.view.WindowManager;
-
-import android.widget.LinearLayout;
-
-import org.apache.cordova.ConfigXmlParser;
-import org.apache.cordova.CordovaInterfaceImpl;
-import org.apache.cordova.CordovaPreferences;
 import org.apache.cordova.CordovaWebView;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaInterface;
-
-import org.apache.cordova.PluginResult;
-import org.apache.cordova.CordovaWebViewImpl;
-import org.apache.cordova.PluginEntry;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.apache.cordova.LOG;
-
-import org.apache.cordova.engine.*;
-
 
 public class SecondWebViewPlugin extends CordovaPlugin {
-
-    private static final String LOG_TAG = "SecondWebview";
-    private CallbackContext closeCallback;
 
     public SecondWebViewPlugin ( ) {
 

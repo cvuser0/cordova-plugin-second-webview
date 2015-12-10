@@ -1,9 +1,6 @@
 package org.apache.cordova.secondwebview;
 
-import android.content.Context;
 import android.os.Bundle;
-
-import android.webkit.WebView;
 import org.apache.cordova.CordovaActivity;
 import org.apache.cordova.CordovaWebView;
 import org.json.JSONObject;
