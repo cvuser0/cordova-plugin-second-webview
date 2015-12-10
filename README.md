@@ -1,3 +1,6 @@
+# DO NOT CLONE THIS
+Unless you plan to fix it
+
 # Second Webview Plugin
 This cordova plugin enables you to open a second webview in your app.
 This webview is totally independent from the main webview but **can** (WIP) communicate with it, and allows you to access plugins and other Cordova resources.
