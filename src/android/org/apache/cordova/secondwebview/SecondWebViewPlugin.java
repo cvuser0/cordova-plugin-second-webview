@@ -98,7 +98,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
         return true;
     }
 
-    private void open ( JSONArray args, CallbackContext callback ) {
+    private void open ( JSONArray args, CallbackContext callback ) throws JSONException {
         JSONObject response = new JSONObject ( );
         response.put ( "url", "url_error" );
         try {
@@ -118,7 +118,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
         }
     }
 
-    private void close ( JSONArray args, CallbackContext callback ) {
+    private void close ( JSONArray args, CallbackContext callback ) throws JSONException {
 //        this.cordova.getActivity ( ).finish ( );
         SecondWebViewActivity.getActivity ( ).finish ( );
         JSONObject response = new JSONObject ( );
