@@ -52,6 +52,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
                 callbackContext.error ( "Action not found" );
                 return false;
         }
+        return true;
         //return true;
 //        if ( action.equals ( "hide" ) ) {
 //            LOG.d ( LOG_TAG, "Hide Second Webview" );
@@ -63,8 +64,6 @@ public class SecondWebViewPlugin extends CordovaPlugin {
 //        else {
 //            return false;
 //        }
-
-        return true;
     }
 
     private void open ( JSONArray args, CallbackContext callback ) throws JSONException {
