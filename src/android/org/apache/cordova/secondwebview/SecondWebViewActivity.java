@@ -15,8 +15,8 @@ public class SecondWebViewActivity extends CordovaActivity {
         Bundle b = getIntent ( ).getExtras ( );
         String url = b.getString ( "url" );
         loadUrl ( ( url.matches ( "^(.*://|javascript:)[\\s\\S]*$" ) ? "" : "file:///android_asset/www/" ) + url );
-        webview = appView;
         setActivity ( this );
+        webview = appView;
     }
 
     public JSONObject executeJS ( String JS ) {
