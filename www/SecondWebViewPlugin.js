@@ -1,4 +1,4 @@
-cordova.define( "cordova-plugin-second-webview.webview" , function ( require , exports , module ) { /*global elu, module */
+cordova.define( "cordova-plugin-second-webview.webview" , function ( require , exports , module ) {
     module.exports = (function () {
         'use strict';
         return {
