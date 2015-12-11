@@ -1,6 +1,7 @@
 package org.apache.cordova.secondwebview;
 
 import android.content.Intent;
+import nl.epassonline.dev.MainActivity;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -14,6 +15,9 @@ public class SecondWebViewPlugin extends CordovaPlugin {
     public SecondWebViewPlugin() {
 
     }
+
+    public static MainActivity parent;
+    public SecondWebViewActivity child;
 
     /**
      * Sets the context of the Command. This can then be used to do things like
@@ -39,23 +43,19 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             case "open":
                 open(args, callbackContext);
                 break;
-            case "closeChild":
-                closeChild(args, callbackContext);
-                break;
-            case "closeParent":
-                closeParent(args, callbackContext);
-                break;
-            case "registerPingReceiver":
-                registerPingReceiver(args, callbackContext);
-                break;
-            case "ping":
-                ping(args, callbackContext);
-                break;
-            case "execJS":
-                execJS(args, callbackContext);
-                break;
+//            case "closeChild":
+////                closeChild(args, callbackContext);
+//                break;
+//            case "closeParent":
+////                closeParent(args, callbackContext);
+//                break;
+//            case "sendToParent":
+////                closeParent(args, callbackContext);
+//                break;
+//            case "sendToChild":
+////                closeParent(args, callbackContext);
+//                break;
             default:
-                callbackContext.error("Action not found");
                 return false;
         }
         return true;
@@ -64,47 +64,17 @@ public class SecondWebViewPlugin extends CordovaPlugin {
     private void open(JSONArray args, CallbackContext callback) throws JSONException {
         JSONObject response = new JSONObject();
         response.put("url", "url_error");
-        try {
-            String url = args.length() > 0 && !args.getString(0).equals("") ? args.getString(0) : "javascript:alert('Empty URL');";
-            if (!url.equals(args.getString(0))) callback.error("Empty URL");
-            Intent i = new Intent(this.cordova.getActivity(), SecondWebViewActivity.class);
-            i.putExtra("url", url);
-            response.putOpt("url", url);
-            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            this.cordova.getActivity().getApplicationContext().startActivity(i);
-            response.put("status", "pass");
-            callback.success(response);
-        } catch (Exception e) {
-            response.put("exception", e.getMessage());
-            response.put("status", "fail");
-            callback.error(response);
-        }
-    }
-
-    private void closeChild(JSONArray args, CallbackContext callback) throws JSONException {
-        SecondWebViewActivity.getActivity().finish();
-        JSONObject response = new JSONObject();
+        String url = args.getJSONObject(0).getString("url");
+        Intent i = new Intent(this.cordova.getActivity(), SecondWebViewActivity.class);
+        i.putExtra("url", url);
+        response.putOpt("url", url);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        this.cordova.getActivity().getApplicationContext().startActivity(i);
         response.put("status", "pass");
         callback.success(response);
     }
 
-    private void closeParent(JSONArray args, CallbackContext callback) throws JSONException {
-        this.cordova.getActivity().finish();
-        JSONObject response = new JSONObject();
-        response.put("status", "pass");
-        callback.success(response);
-    }
+    private void getRole(JSONArray args, CallbackContext callback) throws JSONException {
 
-    public void registerPingReceiver(JSONArray args, CallbackContext callback) {
-
-    }
-
-    public void ping(JSONArray args, CallbackContext callback) {
-
-    }
-
-    public void execJS(JSONArray args, CallbackContext callback) {
-//        SecondWebViewActivity.getActivity().
     }
 }

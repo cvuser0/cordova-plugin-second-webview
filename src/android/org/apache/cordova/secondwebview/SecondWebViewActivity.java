@@ -1,52 +1,25 @@
 package org.apache.cordova.secondwebview;
 
-import android.content.Context;
 import android.os.Bundle;
+import nl.epassonline.dev.MainActivity;
 import org.apache.cordova.CordovaActivity;
-import org.apache.cordova.CordovaWebView;
-import org.json.JSONObject;
 
 public class SecondWebViewActivity extends CordovaActivity {
-    public CordovaWebView webview;
-    public static CordovaActivity activity;
-    public static Context mContext;
-
-    public static Context getContext() {
-        return mContext;
-    }
-
-    public void setContext(Context mContext) {
-        SecondWebViewActivity.mContext = mContext;
-    }
-
+    public static MainActivity parent = null;
+    public static SecondWebViewActivity child = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Bundle b = getIntent().getExtras();
-        String url = b.getString("url");
-        if (!(url != null && !url.equals(""))) {
-            loadUrl("javascript:alert('No URL given!');");
-            setActivity(this);
-            webview = appView;
+        if (SecondWebViewActivity.child != null) {
+            this.finish();
             return;
         }
+        Bundle b = getIntent().getExtras();
+        String url = b.getString("url");
         loadUrl((url.matches("^(.*://|javascript:)[\\s\\S]*$") ? "" : "file:///android_asset/www/") + url);
-        setActivity(this);
-        setContext(this);
-        webview = appView;
-    }
-
-    public JSONObject executeJS(String JS) {
-        webview.loadUrlIntoView(JS, false);
-        return new JSONObject();
-    }
-
-    public static void setActivity(CordovaActivity c) {
-        activity = c;
-    }
-
-    public static CordovaActivity getActivity() {
-        return activity;
+        SecondWebViewActivity.child = this;
+        SecondWebViewActivity.parent = MainActivity.parent;
+        SecondWebViewActivity.parent.execJS("console.log('hello');", this);
     }
 }
