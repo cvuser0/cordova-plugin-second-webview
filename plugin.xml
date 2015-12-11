@@ -36,8 +36,9 @@
             <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="org.apache.cordova.secondwebview.SecondWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar" android:windowSoftInputMode="adjustResize" android:exported="true">
             </activity>
         </config-file>
-
         <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewPlugin.java" target-dir="src/org/apache/cordova/secondwebview"/>
+        <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewInterface.java"
+                     target-dir="src/org/apache/cordova/secondwebview"/>
         <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewActivity.java" target-dir="src/org/apache/cordova/secondwebview"/>
 
     </platform>
