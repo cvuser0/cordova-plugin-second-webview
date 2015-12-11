@@ -20,7 +20,7 @@
     </engines>
 
     <!-- SecondWebView -->
-    <js-module src="www/SecondwebViewPlugin.js" name="webview">
+    <js-module src="www/SecondWebViewPlugin.js" name="webview">
         <clobbers target="WebView"/>
     </js-module>
 
