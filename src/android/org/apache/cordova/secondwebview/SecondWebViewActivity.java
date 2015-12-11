@@ -19,7 +19,8 @@ public class SecondWebViewActivity extends CordovaActivity {
         String url = b.getString("url");
         loadUrl((url.matches("^(.*://|javascript:)[\\s\\S]*$") ? "" : "file:///android_asset/www/") + url);
         SecondWebViewActivity.child = this;
+        MainActivity.child = this;
         SecondWebViewActivity.parent = MainActivity.parent;
-        SecondWebViewActivity.parent.execJS("console.log('hello');", this);
+        SecondWebViewActivity.parent.execJS("console.log('hello');");
     }
 }
