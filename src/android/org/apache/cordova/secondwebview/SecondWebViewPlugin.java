@@ -2,7 +2,7 @@ package org.apache.cordova.secondwebview;
 
 import android.content.Intent;
 import android.webkit.JavascriptInterface;
-import nl.epassonline.dev.MainActivity;
+import nl.epassonline.secondwebview.MainActivity;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -18,7 +18,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
     }
 
     public static MainActivity parent;
-    public SecondWebViewActivity child;
+    public static SecondWebViewActivity child;
 
     /**
      * Sets the context of the Command. This can then be used to do things like
