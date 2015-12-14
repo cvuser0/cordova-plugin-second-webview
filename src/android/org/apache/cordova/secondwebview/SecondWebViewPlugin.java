@@ -43,13 +43,6 @@ public class SecondWebViewPlugin extends CordovaPlugin {
             case "open":
                 open(args, callbackContext);
                 break;
-            case "addInterface":
-                MainActivity.webview.post(new Runnable() {
-                    public void run() {
-                        MainActivity.webview.addJavascriptInterface(new SecondWebViewInterface(), "Android");
-                    }
-                });
-                break;
 //            case "closeChild":
 ////                closeChild(args, callbackContext);
 //                break;
