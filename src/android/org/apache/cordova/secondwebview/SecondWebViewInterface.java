@@ -1,5 +1,6 @@
 package org.apache.cordova.secondwebview;
 
+import android.app.Activity;
 import android.webkit.JavascriptInterface;
 import nl.epassonline.secondwebview.MainActivity;
 
@@ -27,7 +28,13 @@ public class SecondWebViewInterface {
 
     @JavascriptInterface
     public void loadURLParent(String url) {
-        MainActivity.parent.loadUrl(url);
+        final String _url = url;
+        MainActivity.webview.post(new Runnable() {
+            @Override
+            public void run() {
+                MainActivity.parent.loadUrl(_url);
+            }
+        });
     }
 
     @JavascriptInterface
