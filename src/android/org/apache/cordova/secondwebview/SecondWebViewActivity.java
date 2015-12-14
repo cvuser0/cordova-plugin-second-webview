@@ -4,31 +4,32 @@ import android.os.Bundle;
 import android.webkit.WebView;
 import nl.epassonline.secondwebview.MainActivity;
 import org.apache.cordova.CordovaActivity;
-import org.apache.cordova.CordovaWebView;
 
 public class SecondWebViewActivity extends CordovaActivity {
-    public static SecondWebViewActivity child = null;
-    public static CordovaWebView appview = null;
-    public static WebView webview = null;
-    public static MainActivity parent = null;
-    public static SecondWebViewInterface JSinterface = null;
+    public static SecondWebViewActivity self = null;
+    public static SecondWebViewInterface Interface = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (SecondWebViewActivity.child != null) {
-            this.finish();
-            return;
-        }
         Bundle b = getIntent().getExtras();
         String url = b.getString("url");
+        //noinspection ConstantConditions
         loadUrl((url.matches("^(.*://|javascript:)[\\s\\S]*$") ? "" : "file:///android_asset/www/") + url);
-        SecondWebViewActivity.JSinterface = new SecondWebViewInterface("child");
-        ((WebView) appView.getEngine().getView()).addJavascriptInterface(SecondWebViewActivity.JSinterface, "interface");
-        SecondWebViewActivity.child = this;
-        SecondWebViewActivity.appview = appView;
-        SecondWebViewActivity.webview = (WebView) appView.getEngine().getView();
-        SecondWebViewPlugin.child = this;
-        MainActivity.child = this;
+        SecondWebViewActivity.self = this;
+        MainActivity.Interface._other = SecondWebViewActivity.self;
+        SecondWebViewInterface._child = SecondWebViewActivity.self;
+        SecondWebViewActivity.Interface = new SecondWebViewInterface("child", SecondWebViewActivity.self, MainActivity.self);
+        ((WebView) appView.getEngine().getView()).addJavascriptInterface(SecondWebViewActivity.Interface, "Interface");
+    }
+
+    public void load(String _url) {
+        final String url = _url;
+        appView.getEngine().getView().post(new Runnable() {
+            @Override
+            public void run() {
+                appView.loadUrl((url.matches("^(.*://|javascript:)[\\s\\S]*$") ? "" : "file:///android_asset/www/") + url);
+            }
+        });
     }
 }

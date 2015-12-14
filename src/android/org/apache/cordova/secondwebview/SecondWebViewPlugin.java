@@ -8,16 +8,8 @@ import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 public class SecondWebViewPlugin extends CordovaPlugin {
-
-    public SecondWebViewPlugin() {
-
-    }
-
-    public static MainActivity parent;
-    public static SecondWebViewActivity child;
 
     /**
      * Sets the context of the Command. This can then be used to do things like
@@ -41,36 +33,36 @@ public class SecondWebViewPlugin extends CordovaPlugin {
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         switch (action) {
             case "open":
-                open(args, callbackContext);
+                open(args.getString(0));
                 break;
-//            case "closeChild":
-////                closeChild(args, callbackContext);
-//                break;
-//            case "closeParent":
-////                closeParent(args, callbackContext);
-//                break;
-//            case "sendToParent":
-////                closeParent(args, callbackContext);
-//                break;
-//            case "sendToChild":
-////                closeParent(args, callbackContext);
-//                break;
+            case "closeParent":
+                closeParent();
+                break;
+            case "closeChild":
+                closeChild();
+                break;
             default:
                 return false;
         }
         return true;
     }
 
-    private void open(JSONArray args, CallbackContext callback) throws JSONException {
-        JSONObject response = new JSONObject();
-        response.put("url", "url_error");
-        String url = args.getJSONObject(0).getString("url");
+    private void open(String url) throws JSONException {
+        if (SecondWebViewActivity.self != null) {
+            cordova.getActivity().finish();
+            return;
+        }
         Intent i = new Intent(this.cordova.getActivity(), SecondWebViewActivity.class);
         i.putExtra("url", url);
-        response.putOpt("url", url);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.cordova.getActivity().getApplicationContext().startActivity(i);
-        response.put("status", "pass");
-        callback.success(response);
+    }
+
+    public void closeParent() {
+        MainActivity.self.finish();
+    }
+
+    public void closeChild() {
+        SecondWebViewActivity.self.finish();
     }
 }
