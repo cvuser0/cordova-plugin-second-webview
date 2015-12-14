@@ -7,18 +7,8 @@ module.exports = (
             } ,
             addInterface : function () {
                 cordova.exec ( null , null , 'SecondWebViewPlugin' , 'addInterface' , [] );
+
             }
-//                    close  : function ( target ) {
-//                        cordova.exec ( null , null , 'SecondWebViewPlugin' , 'close' , [ { target : target } ] );
-//                    } ,
-//                    callJS : function ( target , function_name , params , callback ) {
-//                        var param = "";
-//                        for ( var i = 0 ; i < params.length ; i ++ ) {
-//                            param += params[ i ] + ',';
-//                        }
-//                        param += params[ params.length ] = callback;
-//                        cordova.exec ( null , null , 'SecondWebViewPlugin' , 'close' , [ { target : target , payload : 'javascript:' + function_name + '(' + param + ');' } ] );
-//                    }
         };
     }
 ) ();

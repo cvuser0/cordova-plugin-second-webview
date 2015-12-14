@@ -1,7 +1,6 @@
 package org.apache.cordova.secondwebview;
 
 import android.content.Intent;
-import android.webkit.JavascriptInterface;
 import nl.epassonline.secondwebview.MainActivity;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
@@ -45,12 +44,7 @@ public class SecondWebViewPlugin extends CordovaPlugin {
                 open(args, callbackContext);
                 break;
             case "addInterface":
-                MainActivity.webview.addJavascriptInterface(new Object() {
-                    @JavascriptInterface
-                    public String ping(String input) {
-                        return input;
-                    }
-                }, "interface");
+                MainActivity.webview.addJavascriptInterface(new SecondWebViewInterface(), "interface");
                 break;
 //            case "closeChild":
 ////                closeChild(args, callbackContext);
