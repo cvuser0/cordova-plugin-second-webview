@@ -32,6 +32,14 @@ public class SecondWebViewInterface {
 
     @JavascriptInterface
     public void loadURLChild(String url) {
-        if (childExists()) SecondWebViewActivity.child.loadUrl(url);
+        final String _url = url;
+        if (childExists()) {
+            SecondWebViewActivity.webview.post(new Runnable() {
+                @Override
+                public void run() {
+                    SecondWebViewActivity.parent.loadUrl(_url);
+                }
+            });
+        }
     }
 }
