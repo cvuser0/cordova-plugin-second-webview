@@ -73,8 +73,4 @@ public class SecondWebViewPlugin extends CordovaPlugin {
         response.put("status", "pass");
         callback.success(response);
     }
-
-    private void getRole(JSONArray args, CallbackContext callback) throws JSONException {
-
-    }
 }

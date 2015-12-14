@@ -21,6 +21,5 @@ public class SecondWebViewActivity extends CordovaActivity {
         SecondWebViewActivity.child = this;
         MainActivity.child = this;
         SecondWebViewActivity.parent = MainActivity.parent;
-        SecondWebViewActivity.parent.execJS("console.log('hello');");
     }
 }

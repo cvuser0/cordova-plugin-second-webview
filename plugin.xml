@@ -37,8 +37,8 @@
             </activity>
         </config-file>
         <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewPlugin.java" target-dir="src/org/apache/cordova/secondwebview"/>
-        <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewInterface.java"
-                     target-dir="src/org/apache/cordova/secondwebview"/>
+        <!--<source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewInterface.java"-->
+        <!--target-dir="src/org/apache/cordova/secondwebview"/>-->
         <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewActivity.java" target-dir="src/org/apache/cordova/secondwebview"/>
 
     </platform>
