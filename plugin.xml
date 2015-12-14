@@ -8,7 +8,8 @@
     <author href="">cvuser0</author>
     <description>
         This cordova plugin enables you to open a second webview in your app.
-        This webview is totally independent from the main webview, but allows you to access plugins and other Cordova resources.
+        This webview is totally independent from the main webview, but allows you to access plugins and other Cordova
+        resources.
     </description>
     <repo>https://github.com/cvuser0/cordova-plugin-second-webview.git</repo>
     <issue>https://github.com/cvuser0/cordova-plugin-second-webview/issues</issue>
@@ -33,13 +34,19 @@
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale" android:label="@string/activity_name" android:launchMode="singleTop" android:name="org.apache.cordova.secondwebview.SecondWebViewActivity" android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar" android:windowSoftInputMode="adjustResize" android:exported="true">
+            <activity android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale"
+                      android:label="@string/activity_name" android:launchMode="singleTop"
+                      android:name="org.apache.cordova.secondwebview.SecondWebViewActivity"
+                      android:screenOrientation="portrait" android:theme="@android:style/Theme.Black.NoTitleBar"
+                      android:windowSoftInputMode="adjustResize" android:exported="true">
             </activity>
         </config-file>
-        <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewPlugin.java" target-dir="src/org/apache/cordova/secondwebview"/>
-        <!--<source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewInterface.java"-->
-        <!--target-dir="src/org/apache/cordova/secondwebview"/>-->
-        <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewActivity.java" target-dir="src/org/apache/cordova/secondwebview"/>
+        <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewPlugin.java"
+                     target-dir="src/org/apache/cordova/secondwebview"/>
+        <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewInterface.java"
+                     target-dir="src/org/apache/cordova/secondwebview"/>
+        <source-file src="src/android/org/apache/cordova/secondwebview/SecondWebViewActivity.java"
+                     target-dir="src/org/apache/cordova/secondwebview"/>
 
     </platform>
 
