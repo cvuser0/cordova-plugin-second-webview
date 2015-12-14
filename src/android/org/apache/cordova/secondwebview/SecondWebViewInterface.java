@@ -1,52 +1,53 @@
 package org.apache.cordova.secondwebview;
 
-import android.app.Activity;
 import android.webkit.JavascriptInterface;
-import nl.epassonline.secondwebview.MainActivity;
+import org.apache.cordova.CordovaActivity;
 
 public class SecondWebViewInterface {
-    public SecondWebViewInterface(String role) {
-        this._role = role;
-    }
+    public CordovaActivity _self = null;
+    public CordovaActivity _other = null;
+    public static CordovaActivity _parent = null;
+    public static CordovaActivity _child = null;
 
-    @JavascriptInterface
-    public String ping(String input) {
-        return input;
+    public SecondWebViewInterface(String role, CordovaActivity self, CordovaActivity other) {
+        this._self = self;
+        this._other = other;
+        SecondWebViewInterface._parent = role.equals("parent") ? self : other;
+        SecondWebViewInterface._child = role.equals("child") ? self : other;
     }
-
-    @JavascriptInterface
-    public String getRole() {
-        return this._role;
-    }
-
-    public String _role = "";
 
     @JavascriptInterface
     public boolean childExists() {
-        return (SecondWebViewActivity.child == null);
+        return SecondWebViewInterface._child != null;
     }
 
     @JavascriptInterface
-    public void loadURLParent(String url) {
-        final String _url = url;
-        MainActivity.webview.post(new Runnable() {
-            @Override
-            public void run() {
-                MainActivity.parent.loadUrl(_url);
-            }
-        });
+    public boolean isParent() {
+        return _self == SecondWebViewInterface._parent;
     }
 
     @JavascriptInterface
-    public void loadURLChild(String url) {
-        final String _url = url;
-        if (childExists()) {
-            SecondWebViewActivity.webview.post(new Runnable() {
-                @Override
-                public void run() {
-                    SecondWebViewActivity.parent.loadUrl(_url);
-                }
-            });
-        }
+    public boolean isChild() {
+        return _self == SecondWebViewInterface._child;
+    }
+
+    @JavascriptInterface
+    public void exeuteSelf(String expression) {
+        _self.loadUrl("javascript:" + expression);
+    }
+
+    @JavascriptInterface
+    public void exeuteOther(String expression) {
+        _other.loadUrl("javascript:" + expression);
+    }
+
+    @JavascriptInterface
+    public void loadSelf(String url) {
+        _self.loadUrl((url.matches("^(.*://|javascript:)[\\s\\S]*$") ? "" : "file:///android_asset/www/") + url);
+    }
+
+    @JavascriptInterface
+    public void loadOther(String url) {
+        _other.loadUrl((url.matches("^(.*://|javascript:)[\\s\\S]*$") ? "" : "file:///android_asset/www/") + url);
     }
 }

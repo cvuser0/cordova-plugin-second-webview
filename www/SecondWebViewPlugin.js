@@ -2,11 +2,15 @@ module.exports = (
     function () {
         'use strict';
         return {
-            open         : function ( pass , fail , url ) {
-                cordova.exec ( pass , fail , 'SecondWebViewPlugin' , 'open' , [ { target : 'plugin' , url : url } ] );
+            Open        : function ( url ) {
+                cordova.exec ( null , null , 'SecondWebViewPlugin' , 'open' , [ url ] );
             } ,
-            addInterface : function () {
-                cordova.exec ( null , null , 'SecondWebViewPlugin' , 'addInterface' , [] );
+            CloseParent : function () {
+                cordova.exec ( null , null , 'SecondWebViewPlugin' , 'closeParent' , [] );
+
+            } ,
+            CloseChild  : function () {
+                cordova.exec ( null , null , 'SecondWebViewPlugin' , 'closeChild' , [] );
 
             }
         };
