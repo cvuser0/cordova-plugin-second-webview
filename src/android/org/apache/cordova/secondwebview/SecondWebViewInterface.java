@@ -1,7 +1,7 @@
 package org.apache.cordova.secondwebview;
 
 import android.webkit.JavascriptInterface;
-import nl.epassonline.secondwebview.MainActivity;
+import org.example.app.MainActivity;
 import org.apache.cordova.CordovaActivity;
 
 public class SecondWebViewInterface {

@@ -1,7 +1,7 @@
 package org.apache.cordova.secondwebview;
 
 import android.content.Intent;
-import nl.epassonline.secondwebview.MainActivity;
+import org.example.app.MainActivity;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;

@@ -2,7 +2,7 @@ package org.apache.cordova.secondwebview;
 
 import android.os.Bundle;
 import android.webkit.WebView;
-import nl.epassonline.secondwebview.MainActivity;
+import org.example.app.MainActivity;
 import org.apache.cordova.CordovaActivity;
 
 public class SecondWebViewActivity extends CordovaActivity {
