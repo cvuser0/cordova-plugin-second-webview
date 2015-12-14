@@ -22,9 +22,9 @@ public class SecondWebViewActivity extends CordovaActivity {
         }
         Bundle b = getIntent().getExtras();
         String url = b.getString("url");
+        loadUrl((url.matches("^(.*://|javascript:)[\\s\\S]*$") ? "" : "file:///android_asset/www/") + url);
         SecondWebViewActivity.JSinterface = new SecondWebViewInterface("child");
         ((WebView) appView.getEngine().getView()).addJavascriptInterface(SecondWebViewActivity.JSinterface, "interface");
-        loadUrl((url.matches("^(.*://|javascript:)[\\s\\S]*$") ? "" : "file:///android_asset/www/") + url);
         SecondWebViewActivity.child = this;
         SecondWebViewActivity.appview = appView;
         SecondWebViewActivity.webview = (WebView) appView.getEngine().getView();
